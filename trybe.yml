@@ -1,2 +1,2 @@
 ignore_files:
-  - HelloDotnetCLI.Test.Test/
+  - src/HelloDotnetCLI.Test.Test/
