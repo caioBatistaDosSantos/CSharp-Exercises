@@ -30,7 +30,18 @@ public class TestSecondRequirement{
     [InlineData("1.0", 1.0)]
     public void TestConvertStrToDouble(string entry, double expected)
     {
-        throw new NotImplementedException();
+        var classForTest = new ConversionTools();
+        classForTest.strVariable = entry;
+        classForTest.strVariable.Should().Be(entry);
+
+        var response = classForTest.strVariable is string;
+        response.Should().Be(true);
+
+        classForTest.ConvertStrToDouble();
+        classForTest.doubleVariable.Should().Be(expected);
+
+        var response1 = classForTest.doubleVariable is double;
+        response1.Should().Be(true);
     }
 }
 
