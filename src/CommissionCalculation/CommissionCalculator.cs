@@ -11,14 +11,14 @@ public class CommissionCalculator
 
     public void CalculateFinalSalary(decimal fixedSalary, int amountCarsSold, decimal totalSalesValue) 
     {
-        decimal allComissionForCarr = (amountCarsSold * 250);
+        int allComissionForCarr = (amountCarsSold * 250);
         decimal allComissionForSales = (totalSalesValue * ( 3 / 100));
 
         var salaryComplet = allComissionForCarr + allComissionForSales + fixedSalary;
 
         this.FixedSalary = fixedSalary;
-        this.AmountCarsSold = amountCarsSold;
-        this.TotalSalesValue = totalSalesValue;
+        this.AmountCarsSold = allComissionForCarr;
+        this.TotalSalesValue = allComissionForSales;
 
         this.FinalSalary = salaryComplet;
     }
