@@ -13,24 +13,27 @@ public class CommissionCalculator
 
     public void CalculateFinalSalary(decimal fixedSalary, int amountCarsSold, decimal totalSalesValue) 
     {
-        int allComissionForCarr = (amountCarsSold * 250);
-        decimal allComissionForSales = (totalSalesValue * ( 3 / 100));
+        int allComissionForCarr = amountCarsSold * 250;
+        decimal allComissionForSales = totalSalesValue * 3 / 100;
 
         var salaryComplet = allComissionForCarr + allComissionForSales + fixedSalary;
 
-        this.FixedSalary = fixedSalary;
-        this.AmountCarsSold = amountCarsSold;
-        this.AllComissionForCarr = allComissionForCarr;
-        this.TotalSalesValue = totalSalesValue;
-        this.AllComissionForSales = allComissionForSales;
+        FixedSalary = fixedSalary;
+        AmountCarsSold = amountCarsSold;
+        AllComissionForCarr = allComissionForCarr;
+        TotalSalesValue = totalSalesValue;
+        AllComissionForSales = allComissionForSales;
 
-        this.FinalSalary = salaryComplet;
+        FinalSalary = salaryComplet;
     }
 
     public void ShowFinalSalary(string contributorName, string month)
     {
-        Console.WriteLine(
-            "O colaborador " + contributorName + " neste mês de " + month + " obteve o salário final de R$" + this.FinalSalary + " referente à: " + "\r\n" + "SALÁRIO FIXO: R$" + this.FixedSalary + "\r\n" + "TOTAL DE CARROS VENDIDOS: " + this.AmountCarsSold + "\r\n" + "VALOR TOTAL DE VENDAS NO MÊS: R$" + this.TotalSalesValue + "\r\n" + "COMISSÃO POR CARROS VENDIDOS: R$" + this.AllComissionForCarr + "\r\n" + "COMISSÃO DE 3% DO TOTAL DE VENDAS: R$" + this.AllComissionForSales
-        );
+        Console.WriteLine("O colaborador " + contributorName + " neste mês de " + month + " obteve o salário final de R$" + FinalSalary.ToString("0.00") + " referente à: , ");
+        Console.WriteLine("SALÁRIO FIXO: R$" + FixedSalary.ToString("0.00") + ", ");
+        Console.WriteLine("TOTAL DE CARROS VENDIDOS: " + AmountCarsSold + ", ");
+        Console.WriteLine("VALOR TOTAL DE VENDAS NO MÊS: R$" + TotalSalesValue.ToString("0.00") + ", ");
+        Console.WriteLine("COMISSÃO POR CARROS VENDIDOS: R$" + AllComissionForCarr.ToString("0.00") + ", ");
+        Console.WriteLine("COMISSÃO DE 3% DO TOTAL DE VENDAS: R$" + AllComissionForSales.ToString("0.00") + ", ");
     }
 }
