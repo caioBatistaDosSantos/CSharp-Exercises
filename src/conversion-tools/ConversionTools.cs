@@ -9,7 +9,7 @@ public class ConversionTools
 
     public void ConvertStrToInt()
     {
-        throw new NotImplementedException();
+       intVariable = Convert.ToInt32(strVariable);
     }
 
     public void ConvertStrToDouble()
