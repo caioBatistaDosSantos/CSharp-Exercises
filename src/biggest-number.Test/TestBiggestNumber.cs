@@ -10,6 +10,7 @@ public class TestBiggestNumber
     [InlineData(0, 0, 0, 0)]
     public void TestIdentifyBiggestNumberSucess(int first, int second, int third, int expectedNumber)
     {
-        throw new NotImplementedException();
+        var result = BiggestNumber.IdentifyBiggestNumber(first, second, third);
+        result.Should().Be(expectedNumber);
     }
 }
