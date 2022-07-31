@@ -12,12 +12,8 @@ public class CommissionCalculatorTest
     public void TestCalculateFinalSalary(decimal fixedSalary, int amountCarsSold, decimal totalSalesValue, decimal expectedFinalSalary)
     {
         var newComission = new CommissionCalculator();
-
         newComission.CalculateFinalSalary(fixedSalary, amountCarsSold, totalSalesValue);
-
-        var result = newComission.FinalSalary;
-
-        result.Should().Be(expectedFinalSalary);
+        newComission.FinalSalary.Should().Be(expectedFinalSalary);
     }
 
     [Theory(DisplayName = "Deve exibir corretamente a mensagem de salário final.")]
@@ -31,6 +27,15 @@ public class CommissionCalculatorTest
     })]
     public void TestShowFinalSalary(string contributorName, string month, string[] expectedMessage)
     {
-        throw new NotImplementedException();
+        using (var NewOutput = new StringWriter())
+        {
+            Console.SetOut(NewOutput);
+            
+            var newComission = new CommissionCalculator();
+            newComission.ShowFinalSalary(contributorName, month);
+            string result = NewOutput.ToString().Trim();
+            Console.WriteLine(expectedMessage[0]);
+            result.Should().Be(string.Join(", ", expectedMessage));     
+        }
     }
 }
