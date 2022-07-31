@@ -10,6 +10,7 @@ public class CommissionCalculator
     public decimal TotalSalesValue { get; set; }
     public decimal AllComissionForSales { get; set; }
     public decimal FinalSalary { get; set; }
+    public string? Message { get; set; }
 
     public void CalculateFinalSalary(decimal fixedSalary, int amountCarsSold, decimal totalSalesValue) 
     {
@@ -29,11 +30,14 @@ public class CommissionCalculator
 
     public void ShowFinalSalary(string contributorName, string month)
     {
-        Console.WriteLine("O colaborador " + contributorName + " neste mês de " + month + " obteve o salário final de R$" + FinalSalary.ToString("0.00") + " referente à: , ");
-        Console.WriteLine("SALÁRIO FIXO: R$" + FixedSalary.ToString("0.00") + ", ");
-        Console.WriteLine("TOTAL DE CARROS VENDIDOS: " + AmountCarsSold + ", ");
-        Console.WriteLine("VALOR TOTAL DE VENDAS NO MÊS: R$" + TotalSalesValue.ToString("0.00") + ", ");
-        Console.WriteLine("COMISSÃO POR CARROS VENDIDOS: R$" + AllComissionForCarr.ToString("0.00") + ", ");
-        Console.WriteLine("COMISSÃO DE 3% DO TOTAL DE VENDAS: R$" + AllComissionForSales.ToString("0.00") + ", ");
+        var invariantCultureUs = System.Globalization.CultureInfo.InvariantCulture;
+        var messageForMethod = "O colaborador " + contributorName + " neste mês de " + month + " obteve o salário final de R$" + this.FinalSalary.ToString("0.00", invariantCultureUs) + " referente à:" +
+            "SALARIO FIXO: R$" + FixedSalary.ToString("0.00", invariantCultureUs) +
+            "TOTAL DE CARROS VENDIDOS: " + AmountCarsSold +
+            "VALOR TOTAL DE VENDAS NO MES: R$" + TotalSalesValue.ToString("0.00", invariantCultureUs) +
+            "COMISSÃO POR CARROS VENDIDOS: R$" + AllComissionForCarr.ToString("0.00", invariantCultureUs) +
+            "COMISSÃO DE 3% DO TOTAL DE VENDAS: R$" + AllComissionForSales.ToString("0.00", invariantCultureUs);
+        this.Message = messageForMethod;
+        Console.WriteLine(messageForMethod);
     }
 }

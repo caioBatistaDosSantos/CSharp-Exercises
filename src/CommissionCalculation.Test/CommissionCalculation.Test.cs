@@ -27,15 +27,10 @@ public class CommissionCalculatorTest
     })]
     public void TestShowFinalSalary(string contributorName, string month, string[] expectedMessage)
     {
-        using (var NewOutput = new StringWriter())
-        {
-            Console.SetOut(NewOutput);
-            
-            var newComission = new CommissionCalculator();
-            newComission.ShowFinalSalary(contributorName, month);
-            string result = NewOutput.ToString().Trim();
-            Console.WriteLine(expectedMessage[0]);
-            result.Should().Be(string.Join(", ", expectedMessage));     
-        }
+        var newComission = new CommissionCalculator();
+        newComission.ShowFinalSalary(contributorName, month);
+        var classMessange = newComission.Message;
+        string expect = string.Concat(expectedMessage);
+       classMessange.Should().Be(expect);
     }
 }
