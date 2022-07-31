@@ -50,7 +50,18 @@ public class TestThirdRequirement{
     [InlineData(1, "1")]
     public void TestConvertIntToStr(int entry, string expected)
     {
-        throw new NotImplementedException();
+        var classForTest = new ConversionTools();
+        classForTest.intVariable = entry;
+        classForTest.intVariable.Should().Be(entry);
+
+        var response = classForTest.intVariable is int;
+        response.Should().Be(true);
+
+        classForTest.ConvertIntToStr();
+        classForTest.strVariable.Should().Be(expected);
+
+        var response1 = classForTest.strVariable is string;
+        response1.Should().Be(true);
     }
 }
 
@@ -59,6 +70,17 @@ public class TestFourthRequirement{
     [InlineData(4.1, "4.1")]
     public void TestConvertDoubleToStr(double entry, string expected)
     {
-        throw new NotImplementedException();
+        var classForTest = new ConversionTools();
+        classForTest.doubleVariable = entry;
+        classForTest.doubleVariable.Should().Be(entry);
+
+        var response = classForTest.doubleVariable is double;
+        response.Should().Be(true);
+
+        classForTest.ConvertDoubleToStr();
+        classForTest.strVariable.Should().Be(expected);
+
+        var response1 = classForTest.strVariable is string;
+        response1.Should().Be(true);
     }
 }
