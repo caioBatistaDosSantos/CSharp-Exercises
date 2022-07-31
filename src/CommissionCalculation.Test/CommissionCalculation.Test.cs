@@ -11,7 +11,13 @@ public class CommissionCalculatorTest
     [InlineData(1200, 2, 60000, 3500)]
     public void TestCalculateFinalSalary(decimal fixedSalary, int amountCarsSold, decimal totalSalesValue, decimal expectedFinalSalary)
     {
-        throw new NotImplementedException();
+        var newComission = new CommissionCalculator();
+
+        newComission.CalculateFinalSalary(fixedSalary, amountCarsSold, totalSalesValue);
+
+        var result = newComission.FinalSalary;
+
+        result.Should().Be(expectedFinalSalary);
     }
 
     [Theory(DisplayName = "Deve exibir corretamente a mensagem de salário final.")]
