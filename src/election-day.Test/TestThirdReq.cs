@@ -11,7 +11,7 @@ public class TestThirdReq
 {
     [Theory(DisplayName = "Deve imprimir o resultado")]
     [InlineData(new string[]{"6","1","1","5","A","3","2"}, 2, 1, 1, 2)]
-    [InlineData(new string[]{"6","1","1","5","A","3","2"}, 1, 1, 1, 1)]
+    [InlineData(new string[]{"1","5","A","3","2"}, 1, 1, 1, 1)]
     public void TestPrintResult(
         string[] entrys,
         int expectedReceivedOption1,
@@ -23,14 +23,15 @@ public class TestThirdReq
         Console.SetOut(output);
 
         var instanceClass = new BallotBox();
+        foreach (var entry in entrys)
+        {
+            if (!int.TryParse(entry, out var valid)) continue;
 
-        instanceClass.receivedOption1 = expectedReceivedOption1;
-        instanceClass.receivedOption2 = expectedReceivedOption2;
-        instanceClass.receivedOption3 = expectedReceivedOption3;
-        instanceClass.optionNull = expectedOptionNull;
+            using var input = new StringReader(entry);
+            Console.SetIn(input);
 
-        // using var input = new StringReader(entrys.ToString());
-        // Console.SetIn(input);
+            instanceClass.Start(1);
+        }
         
         instanceClass.PrintResult();
 
