@@ -11,6 +11,7 @@ public class TestThirdReq
 {
     [Theory(DisplayName = "Deve imprimir o resultado")]
     [InlineData(new string[]{"6","1","1","5","A","3","2"}, 2, 1, 1, 2)]
+    [InlineData(new string[]{"6","1","1","5","A","3","2"}, 1, 1, 1, 1)]
     public void TestPrintResult(
         string[] entrys,
         int expectedReceivedOption1,
@@ -18,6 +19,25 @@ public class TestThirdReq
         int expectedReceivedOption3,
         int expectedOptionNull)
     {
-        throw new NotImplementedException();
+        using var output = new StringWriter();
+        Console.SetOut(output);
+
+        var instanceClass = new BallotBox();
+
+        instanceClass.receivedOption1 = expectedReceivedOption1;
+        instanceClass.receivedOption2 = expectedReceivedOption2;
+        instanceClass.receivedOption3 = expectedReceivedOption3;
+        instanceClass.optionNull = expectedOptionNull;
+
+        // using var input = new StringReader(entrys.ToString());
+        // Console.SetIn(input);
+        
+        instanceClass.PrintResult();
+
+        string result = output.ToString().Trim();
+
+        string message = $"Votação finalizada!!!!\r\nA opção 1 recebeu:  {expectedReceivedOption1} voto(s)\r\nA opção 2 recebeu: {expectedReceivedOption2} voto(s)\r\nA opção 3 recebeu: {expectedReceivedOption3} voto(s)\r\nTotal de votos anulados: {expectedOptionNull} voto(s)";
+
+        result.Should().Be(message);
     }
 }

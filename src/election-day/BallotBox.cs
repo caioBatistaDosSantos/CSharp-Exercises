@@ -2,10 +2,10 @@ namespace election_day
 {
     public class BallotBox
     {
-        private int receivedOption1;
-        private int receivedOption2;
-        private int receivedOption3;
-        private int optionNull;
+        public int receivedOption1;
+        public int receivedOption2;
+        public int receivedOption3;
+        public int optionNull;
         
         public int GetCountVoters()
         {
@@ -14,7 +14,7 @@ namespace election_day
 
             do
             {
-                Console.Write("O número deve ser um inteiro maior que zero");
+                Console.Write("\r\nO número deve ser um inteiro maior que zero\r\n");
                 var response = Console.ReadLine();
                 convertible = int.TryParse(response, out numberInsert);
 
@@ -29,7 +29,7 @@ namespace election_day
         {
             for (var i = 0; i < countVoters; i++)
             {
-                Console.Write("Informe o número do candidato de 1 a 3, ou tecle qualquer outro digito para votar nulo: ");
+                Console.Write("\r\nInforme o número do candidato de 1 a 3, ou tecle qualquer outro digito para votar nulo: ");
                 var vote = GetCountVoters();
 
                 switch (vote)
@@ -48,18 +48,16 @@ namespace election_day
                         break;
                 }
 
-                Console.Write("Voto registrado: " + vote.ToString());
+                Console.Write($"\r\nVoto registrado: {vote}\r\n");
             }
             
         }
 
         public void PrintResult()
         {
-            Console.Write("Votação finalizada!!!!");
-            Console.Write("A opção 1 recebeu: " + receivedOption1 + " voto(s)");
-            Console.Write("A opção 2 recebeu: " + receivedOption2 + " voto(s)");
-            Console.Write("A opção 3 recebeu: " + receivedOption3 + " voto(s)");
-            Console.Write("Total de votos anulados: " + optionNull + " voto(s)");
+            var message = $"Votação finalizada!!!!\r\nA opção 1 recebeu:  {receivedOption1} voto(s)\r\nA opção 2 recebeu: {receivedOption2} voto(s)\r\nA opção 3 recebeu: {receivedOption3} voto(s)\r\nTotal de votos anulados: {optionNull} voto(s)";
+
+            Console.Write(message);
         }
     }
 }

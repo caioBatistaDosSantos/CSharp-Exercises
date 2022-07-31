@@ -11,15 +11,18 @@ public class TestFirstReq
 {
     [Theory]
     [InlineData(1)]
+    [InlineData(5)]
     public void TestGetCountVoters(int countVoters)
     {
-        using (var input = new StringReader(countVoters.ToString()))
-        {
-            Console.SetIn(input);
-            var instanceClass = new BallotBox();
+        using var input = new StringReader(countVoters.ToString());
+        Console.SetIn(input);
 
-            var response = instanceClass.GetCountVoters();
-            response.Should().Be(countVoters);
-        }
+        using var output = new StringWriter();
+        Console.SetOut(output);
+        
+        var instanceClass = new BallotBox();
+
+        var response = instanceClass.GetCountVoters();
+        response.Should().Be(countVoters);
     }
 }
