@@ -11,7 +11,16 @@ public class CommissionCalculator
 
     public void CalculateFinalSalary(decimal fixedSalary, int amountCarsSold, decimal totalSalesValue) 
     {
-        throw new NotImplementedException();
+        decimal allComissionForCarr = (amountCarsSold * 250);
+        decimal allComissionForSales = (totalSalesValue * ( 3 / 100));
+
+        var salaryComplet = allComissionForCarr + allComissionForSales + fixedSalary;
+
+        this.FixedSalary = fixedSalary;
+        this.AmountCarsSold = amountCarsSold;
+        this.TotalSalesValue = totalSalesValue;
+
+        this.FinalSalary = salaryComplet;
     }
 
     public void ShowFinalSalary(string contributorName, string month)
