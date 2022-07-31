@@ -13,6 +13,13 @@ public class TestFirstReq
     [InlineData(1)]
     public void TestGetCountVoters(int countVoters)
     {
-        throw new NotImplementedException();
+        using (var input = new StringReader(countVoters.ToString()))
+        {
+            Console.SetIn(input);
+            var instanceClass = new BallotBox();
+
+            var response = instanceClass.GetCountVoters();
+            response.Should().Be(countVoters);
+        }
     }
 }
