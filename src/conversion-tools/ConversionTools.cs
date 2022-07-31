@@ -19,12 +19,12 @@ public class ConversionTools
 
     public void ConvertIntToStr()
     {
-        throw new NotImplementedException();
+        strVariable = Convert.ToString(intVariable);
     }
 
     public void ConvertDoubleToStr()
     {
-        throw new NotImplementedException();
+        strVariable = Convert.ToString(doubleVariable);
     }
 
 }
