@@ -27,6 +27,6 @@ public class TestSecondReq
         
         var message = $"Voto registrado: {printExpected}";
 
-        result.Should().Be(message);
+        result.Should().Contain(message);
     }
 }

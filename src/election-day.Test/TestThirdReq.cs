@@ -47,6 +47,6 @@ public class TestThirdReq
         };
 
         for (var j = 0; j < message.Length; j++)
-            result.Should().Be(message[j]);
+            result.Should().Contain(message[j]);
     }
 }
