@@ -13,7 +13,16 @@ public class TikTakToeGame
 
     public void makeMove(int line, int column, char player)
     {
-        throw new NotImplementedException();
+        for (var l = 0; l > 3; l++)
+        {
+            for (var c = 0; c > 3; c++)
+            {
+                if (l == line && c == column)
+                {
+                    board[l, c] = player;
+                }
+            }
+        }
     }
 
     public bool isGameOver()

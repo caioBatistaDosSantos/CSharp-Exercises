@@ -22,7 +22,10 @@ public class TestTikTakToeGame
     )]
     public void TestMakeMove(int lineEntry, int columnEntry, char playerEntry, char[] expected)
     {
-        throw new NotImplementedException();
+        var play = new TikTakToeGame();
+        play.makeMove(lineEntry, columnEntry, playerEntry);
+
+        play.board.Should().Be(expected);
     }
     
     [Theory(DisplayName = "Deve imprimir o tabuleiro")]
