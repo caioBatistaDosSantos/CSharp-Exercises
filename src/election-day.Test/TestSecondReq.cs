@@ -25,7 +25,7 @@ public class TestSecondReq
 
         string result = output.ToString().Trim();
         
-        var message = $"\r\nInforme o número do candidato de 1 a 3, ou tecle qualquer outro digito para votar nulo: \r\nO número deve ser um inteiro maior que zero\r\n\r\nVoto registrado: {printExpected}\r\n";
+        var message = $"Voto registrado: {printExpected}";
 
         result.Should().Be(message);
     }

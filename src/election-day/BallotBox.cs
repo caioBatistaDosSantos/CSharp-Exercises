@@ -55,9 +55,15 @@ namespace election_day
 
         public void PrintResult()
         {
-            var message = $"Votação finalizada!!!!\r\nA opção 1 recebeu:  {receivedOption1} voto(s)\r\nA opção 2 recebeu: {receivedOption2} voto(s)\r\nA opção 3 recebeu: {receivedOption3} voto(s)\r\nTotal de votos anulados: {optionNull} voto(s)";
+            Console.WriteLine($"\r\nVotação finalizada!!!!\r\n");
 
-            Console.Write(message);
+            int[] options = { receivedOption1, receivedOption2, receivedOption3 };
+
+            for (int i = 0; i < options.Length; i++)
+            {
+                Console.WriteLine($"A opção {i + 1} recebeu: {options[i]} voto(s)\r\n");
+            }
+            Console.WriteLine($"Total de votos anulados: {optionNull} voto(s)");
         }
     }
 }

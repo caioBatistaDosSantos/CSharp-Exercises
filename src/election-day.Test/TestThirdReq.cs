@@ -37,8 +37,16 @@ public class TestThirdReq
 
         string result = output.ToString().Trim();
 
-        string message = $"Votação finalizada!!!!\r\nA opção 1 recebeu:  {expectedReceivedOption1} voto(s)\r\nA opção 2 recebeu: {expectedReceivedOption2} voto(s)\r\nA opção 3 recebeu: {expectedReceivedOption3} voto(s)\r\nTotal de votos anulados: {expectedOptionNull} voto(s)";
+        string[] message =
+        {
+            $"Votação finalizada!!!!",
+            $"A opção 1 recebeu: {expectedReceivedOption1} voto(s)",
+            $"A opção 2 recebeu: {expectedReceivedOption2} voto(s)",
+            $"A opção 3 recebeu: {expectedReceivedOption3} voto(s)",
+            $"Total de votos anulados: {expectedOptionNull} voto(s)",
+        };
 
-        result.Should().Be(message);
+        for (var j = 0; j < message.Length; j++)
+            result.Should().Be(message[j]);
     }
 }
