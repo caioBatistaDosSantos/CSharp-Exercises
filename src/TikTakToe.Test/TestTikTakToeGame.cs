@@ -43,7 +43,18 @@ public class TestTikTakToeGame
     )]
     public void TestPrintBoard(char[] entry, string[] expected)
     {
-        throw new NotImplementedException();
+        var play = new TikTakToeGame();
+
+        play.board = fromArrayToMultiDimArray(entry, 3, 3);
+
+        using var NewOutput = new StringWriter();
+        Console.SetOut(NewOutput);
+
+        play.printBoard();
+
+        var result = NewOutput.ToString().Trim();
+
+        result.Should().Be(string.Join("\n", expected));
     }
 
     [Theory(DisplayName = "Deve retornar corretamente se o jogo acabou ou não")]

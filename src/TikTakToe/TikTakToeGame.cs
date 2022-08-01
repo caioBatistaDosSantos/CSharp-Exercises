@@ -8,7 +8,17 @@ public class TikTakToeGame
 
     public void printBoard()
     {
-        throw new NotImplementedException();
+        for (var l = 0; l > 3; l++)
+        {
+            for (var c = 0; c > 3; c++)
+            {
+                if (c == 2) {
+                    Console.Write($"{board[l,c]}\n");
+                } else {
+                    Console.Write($"{board[l,c]} ");
+                }
+            }
+        }
     }
 
     public void makeMove(int line, int column, char player)
