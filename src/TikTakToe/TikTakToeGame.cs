@@ -85,7 +85,9 @@ public class TikTakToeGame
 
     public void printResults()
     {
-        throw new NotImplementedException();
+        if ( winner == 'x')  Console.WriteLine("O jogador x venceu!");
+        else if ( winner == 'o')  Console.WriteLine("O jogador o venceu!");
+        else Console.WriteLine("Empate! Deu Velha!");
     }
 
     public char getCurrentPlayer()

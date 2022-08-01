@@ -25,7 +25,7 @@ public class TestTikTakToeGame
         var play = new TikTakToeGame();
         play.makeMove(lineEntry, columnEntry, playerEntry);
 
-        play.board.Should().Be(expected);
+        play.board.Should().BeEquivalentTo(fromArrayToMultiDimArray(expected, 3, 3));
     }
     
     [Theory(DisplayName = "Deve imprimir o tabuleiro")]
@@ -47,14 +47,18 @@ public class TestTikTakToeGame
 
         play.board = fromArrayToMultiDimArray(entry, 3, 3);
 
-        using var NewOutput = new StringWriter();
-        Console.SetOut(NewOutput);
+        using (var NewOutput = new StringWriter())
+        {
+            Console.SetOut(NewOutput);
 
-        play.printBoard();
+            play.printBoard();
 
-        var result = NewOutput.ToString().Trim();
+            var result = NewOutput.ToString().Trim();
 
-        result.Should().Be(string.Join("\n", expected));
+            var message = string.Concat(expected[0] + "\n" + expected[1] + "\n" + expected[2]);
+
+            result.Should().Be(message);
+        }
     }
 
     [Theory(DisplayName = "Deve retornar corretamente se o jogo acabou ou não")]
@@ -83,7 +87,20 @@ public class TestTikTakToeGame
     [InlineData(' ', "Empate! Deu velha!")]
     public void TestPrintResults(char entry, string expected)
     {
-        throw new NotImplementedException();
+        var play = new TikTakToeGame();
+
+        play.winner = entry;
+
+        using (var NewOutput = new StringWriter())
+        {
+            Console.SetOut(NewOutput);
+
+            play.printResults();
+
+            var result = NewOutput.ToString().Trim();
+
+            result.Should().Be(expected);
+        }
     }
 
     public static char[,] fromArrayToMultiDimArray(char[] array, int lines, int columns)
