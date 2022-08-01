@@ -39,7 +39,6 @@ public class TestThirdReq
 
         string[] message =
         {
-            $"Votação finalizada!!!!",
             $"A opção 1 recebeu: {expectedReceivedOption1} voto(s)",
             $"A opção 2 recebeu: {expectedReceivedOption2} voto(s)",
             $"A opção 3 recebeu: {expectedReceivedOption3} voto(s)",
