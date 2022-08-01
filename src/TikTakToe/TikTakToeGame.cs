@@ -87,7 +87,7 @@ public class TikTakToeGame
     {
         if ( winner == 'x')  Console.WriteLine("O jogador x venceu!");
         else if ( winner == 'o')  Console.WriteLine("O jogador o venceu!");
-        else Console.WriteLine("Empate! Deu Velha!");
+        else Console.Write("Empate! Deu Velha!");
     }
 
     public char getCurrentPlayer()

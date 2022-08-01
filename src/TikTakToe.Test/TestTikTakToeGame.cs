@@ -98,7 +98,6 @@ public class TestTikTakToeGame
             play.printResults();
 
             var result = NewOutput.ToString().Trim();
-
             result.Should().Be(expected);
         }
     }
