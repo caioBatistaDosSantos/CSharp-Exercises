@@ -69,7 +69,14 @@ public class TestTikTakToeGame
     )]
     public void TestIsGameOver(char[] entry, char expectedWinner, bool expectedReturn)
     {
-        throw new NotImplementedException();
+        var play = new TikTakToeGame();
+
+        play.board = fromArrayToMultiDimArray(entry, 3, 3);
+
+        var playWinner = play.isGameOver();
+
+        play.winner.Should().Be(expectedWinner);
+        playWinner.Should().Be(expectedReturn);
     }
 
     [Theory(DisplayName = "Deve imprimir o vencedor correto do jogo")]
