@@ -43,6 +43,7 @@ public class ChickenTestTest
         actWithoutMother.Should().Throw<Xunit.Sdk.XunitException>();
         actWithMother.Should().Throw<Xunit.Sdk.XunitException>();
     }
+}
 
 public class ChickenTestTest2
 {
@@ -55,6 +56,8 @@ public class ChickenTestTest2
             { 6, new Chicken(6) }
         };
 
+    private ChickenTest _instance = new ChickenTest();
+    
     public static TheoryData<int, Chicken> InvalidChickenData =>
         new TheoryData<int, Chicken>
         {
