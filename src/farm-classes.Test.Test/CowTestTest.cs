@@ -58,6 +58,8 @@ public class CowTestTest2
             { -100, "Brown" },
         };
 
+    private CowTest _instance = new CowTest();
+
     [Trait("Category", "2 - Criou testes para o TestCowInstantiationInvalidWeight")]
     [Theory(DisplayName = "TestCowInstantiationInvalidWeight não deve lançar erro caso o peso seja inválido")]
     [MemberData(nameof(InvalidCowWeightData))]
@@ -77,6 +79,7 @@ public class CowTestTest2
         Action act = () => _instance.TestCowInstantiationInvalidWeight(weight, breed);
         act.Should().Throw<Xunit.Sdk.XunitException>();
     }
+}
 
 public class CowTestTest3
 {   
@@ -94,6 +97,8 @@ public class CowTestTest3
             { 100, "" },
             { 100, null! },
         };
+
+    private CowTest _instance = new CowTest();
 
     [Trait("Category", "3 - Criou testes para o TestCowInstantiationNullOrEmptyBreed")]
     [Theory(DisplayName = "TestCowInstantiationNullOrEmptyBreed não deve lançar erro caso a raça seja inválida")]
