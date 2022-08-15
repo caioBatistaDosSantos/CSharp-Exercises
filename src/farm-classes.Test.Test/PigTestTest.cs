@@ -31,6 +31,7 @@ public class PigTestTest
         act.Should().Throw<Xunit.Sdk.XunitException>();
         act.Should().NotThrow<NotImplementedException>();
     }
+}
 
 public class PigTestTest2
 {   
@@ -39,6 +40,8 @@ public class PigTestTest2
 
     public static TheoryData<int> PigDataInvalidAge =>
         new TheoryData<int> { -1, -5, -10 };
+        
+    private PigTest _instance = new PigTest();
 
     [Trait("Category", "5 - Criou testes para o TestPigInstantiationInvalidAge")]
     [Theory(DisplayName = "TestPigInstantiationInvalidAge não deve lançar erro caso a idade seja inválida")]
