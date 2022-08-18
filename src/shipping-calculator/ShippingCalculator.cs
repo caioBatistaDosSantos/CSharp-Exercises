@@ -12,7 +12,16 @@ namespace ShippingCalculator
         /// <exception cref="ArgumentException">If the order price be equal to or less than zero</exception>
         public int CalculateShipping(double orderPrice) 
         {
-            throw new NotImplementedException();   
+            if (orderPrice <= 0)
+                throw new Exception("The order price cannot be equal to or less than zero");
+            if (orderPrice <= 50)
+                return 25;
+            if (orderPrice > 50 && orderPrice <= 100)
+                return 20;
+            if (orderPrice > 100 && orderPrice <= 200)
+                return 15;
+            else
+                return 0;
         }
     }
 }
