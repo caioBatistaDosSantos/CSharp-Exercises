@@ -11,7 +11,21 @@ public class CharacterCounter
         /// <exception cref="NullReferenceException">If text is null throw exception </exception>
         public int Action(string text)
         {
-            throw new NotImplementedException();    
+            try
+            {
+                if (text == null)
+                {
+                    throw new NullReferenceException("Valor de texto inválido");
+                }
+                    
+                return text.Length; 
+            }
+            catch (ArgumentNullException ex)
+            {
+                Console.WriteLine(ex.Message);
+                throw ex;
+            }
+            
         } 
 
 }
