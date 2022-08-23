@@ -11,6 +11,8 @@ public class CharacterCounter
         /// <exception cref="NullReferenceException">If text is null throw exception </exception>
         public int Action(string text)
         {
+            var watch = Stopwatch.StartNew();
+
             try
             {
                 if (text == null)
@@ -24,6 +26,11 @@ public class CharacterCounter
             {
                 Console.WriteLine(ex.Message);
                 throw ex;
+            }
+            finally
+            {
+                Console.WriteLine(watch.ElapsedMilliseconds);
+                watch.Stop();
             }
             
         } 
