@@ -35,7 +35,13 @@ public class CowTest
     [MemberData(nameof(CowData))]
     public void TestCowInstantiation(int weight, int expectedWeight, string breed, string expectedBreed)
     {
-        throw new NotImplementedException();
+        var vaquinha = new Cow(weight, breed);
+
+        vaquinha.Should().NotBeNull();
+        vaquinha.Should().BeOfType<Cow>();
+
+        vaquinha.Weight.Should().Be(expectedWeight);
+        vaquinha.Breed.Should().Be(expectedBreed);
     }
 
     [Trait("Category", "1 - Crie uma classe Cow")]
@@ -43,7 +49,9 @@ public class CowTest
     [MemberData(nameof(CowDataInvalidWeight))]
     public void TestCowInstantiationInvalidWeight(int weight, string breed)
     {
-        throw new NotImplementedException();
+        Action act = () => new Cow(weight, breed);
+
+        act.Should().Throw<ArgumentException>();
     }
 
     [Trait("Category", "1 - Crie uma classe Cow")]
@@ -51,6 +59,8 @@ public class CowTest
     [MemberData(nameof(CowDataNullOrEmptyName))]
     public void TestCowInstantiationNullOrEmptyBreed(int weight, string breed)
     {
-        throw new NotImplementedException();
+        Action act = () => new Cow(weight, breed);
+
+        act.Should().Throw<ArgumentException>();
     }
 }
