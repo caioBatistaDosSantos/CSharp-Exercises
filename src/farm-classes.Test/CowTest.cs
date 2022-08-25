@@ -35,13 +35,13 @@ public class CowTest
     [MemberData(nameof(CowData))]
     public void TestCowInstantiation(int weight, int expectedWeight, string breed, string expectedBreed)
     {
-        var vaquinha = new Cow(weight, breed);
+        var newCow = new Cow(weight, breed);
 
-        vaquinha.Should().NotBeNull();
-        vaquinha.Should().BeOfType<Cow>();
+        newCow.Should().NotBeNull();
+        newCow.Should().BeOfType<Cow>();
 
-        vaquinha.Weight.Should().Be(expectedWeight);
-        vaquinha.Breed.Should().Be(expectedBreed);
+        newCow.Weight.Should().Be(expectedWeight);
+        newCow.Breed.Should().Be(expectedBreed);
     }
 
     [Trait("Category", "1 - Crie uma classe Cow")]
