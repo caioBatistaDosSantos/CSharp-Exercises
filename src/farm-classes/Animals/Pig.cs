@@ -7,7 +7,7 @@ class Pig
 
     public Pig(int age)
     {
-        if (age <= 0)
+        if (age < 0)
             throw new ArgumentException("Idade informada incorretamente");
         
         Age = age;
