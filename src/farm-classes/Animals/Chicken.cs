@@ -2,9 +2,9 @@ namespace Animals;
 
 class Chicken   
 {
-    Guid Id = Guid.NewGuid();
-    int EggsPerWeek;
-    Chicken? Mother;
+    public Guid Id = Guid.NewGuid();
+    public int EggsPerWeek;
+    public Chicken? Mother;
 
     public Chicken(int eggsPerWeek, Chicken mother)
     {

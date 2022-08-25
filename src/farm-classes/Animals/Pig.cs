@@ -2,8 +2,8 @@
 
 class Pig
 {
-    Guid Id = Guid.NewGuid();
-    int Age;
+    public Guid Id = Guid.NewGuid();
+    public int Age;
 
     public Pig(int age)
     {

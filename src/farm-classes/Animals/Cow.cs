@@ -2,9 +2,9 @@
 
 class Cow
 {
-    Guid Id = Guid.NewGuid();
-    int Weight;
-    string Breed;
+    public Guid Id = Guid.NewGuid();
+    public int Weight;
+    public string Breed;
 
     public Cow(int weight, string breed)
     {
