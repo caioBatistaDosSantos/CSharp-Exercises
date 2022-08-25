@@ -1,6 +1,6 @@
 ﻿namespace Animals;
 
-class Cow
+public class Cow
 {
     public Guid Id = Guid.NewGuid();
     public int Weight;

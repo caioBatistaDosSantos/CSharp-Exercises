@@ -1,6 +1,6 @@
 namespace Animals;
 
-class Chicken   
+public class Chicken   
 {
     public Guid Id = Guid.NewGuid();
     public int EggsPerWeek;

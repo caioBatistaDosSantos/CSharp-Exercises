@@ -1,6 +1,6 @@
 ﻿namespace Animals;
 
-class Pig
+public class Pig
 {
     public Guid Id = Guid.NewGuid();
     public int Age;
