@@ -23,20 +23,43 @@ public class PaintUtilitiesTest
         int newSqMtPerLiter,
         int newSqMtPerBucket)
     {
-        throw new NotImplementedException();
+        PaintUtilities.BucketSizeLiters.Should().Be(bucketSize);
+        PaintUtilities.SquareMetersPerLiter.Should().Be(sqMtPerLiter);
+        PaintUtilities.SquareMetersPerBucket.Should().Be(sqMtPerBucket);
+
+        PaintUtilities.BucketSizeLiters = newBucketSize;
+        PaintUtilities.SquareMetersPerLiter = newSqMtPerLiter;
+
+        PaintUtilities.BucketSizeLiters.Should().Be(newBucketSize);
+        PaintUtilities.SquareMetersPerLiter.Should().Be(newSqMtPerLiter);
+        PaintUtilities.SquareMetersPerBucket.Should().Be(newSqMtPerBucket);
     }
 
     [Theory]
     [MemberData(nameof(ValidOverloadData))]
     public void TestGetNeededPaintBucketsCalculation(double area, Wall wall, Room room, int expectedBuckets)
     {
-        throw new NotImplementedException();
+        int result1 = PaintUtilities.GetNeededPaintBuckets(area);
+        result1.Should().Be(expectedBuckets);
+        int result2 = PaintUtilities.GetNeededPaintBuckets(wall);
+        result2.Should().Be(expectedBuckets);
+        int result3 = PaintUtilities.GetNeededPaintBuckets(room);
+        result3.Should().Be(expectedBuckets);
     }
 
     [Theory]
     [MemberData(nameof(ValidOverloadData))]
     public void TestCalculateCostCalculation(double area, Wall wall, Room room, int expectedBuckets)
     {
-        throw new NotImplementedException();
+        decimal price = 4.25M;
+
+        decimal expectedCost = price * expectedBuckets;
+
+        decimal result = PaintUtilities.CalculateCost(price, area);
+        result.Should().Be(expectedCost);
+        result = PaintUtilities.CalculateCost(price, wall);
+        result.Should().Be(expectedCost);
+        result = PaintUtilities.CalculateCost(price, room);
+        result.Should().Be(expectedCost);
     }
 }
