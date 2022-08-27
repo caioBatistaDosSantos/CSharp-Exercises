@@ -7,6 +7,20 @@ public class ParallelepipedTest
     [Theory]
     public void TestParallelepiped(double height, double width, double depth)
     {
-        throw new System.NotImplementedException();
+        var parallelepiped = new Parallelepiped(width, height, depth);
+
+        parallelepiped.Width.Should().Be(width);
+        parallelepiped.Height.Should().Be(height);
+        parallelepiped.Depth.Should().Be(depth);
+
+        parallelepiped.FaceA.GetType().IsInstanceOfType(typeof(Rectangle));
+        parallelepiped.FaceB.GetType().IsInstanceOfType(typeof(Rectangle));
+        parallelepiped.FaceC.GetType().IsInstanceOfType(typeof(Rectangle));
+
+        parallelepiped.Volume.Should().Be(width * height * depth);
+
+        double result = ((width * height) + (width * depth) + (height * depth)) * 2;
+
+        parallelepiped.SurfaceArea.Should().Be(result);
     }
 }
