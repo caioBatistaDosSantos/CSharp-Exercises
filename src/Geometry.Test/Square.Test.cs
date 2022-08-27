@@ -8,6 +8,7 @@ public class SquareTest
     [Theory]
     public void TestSquare(double side)
     {
-        throw new System.NotImplementedException();
+        var square = new Square(side);
+        square.GetType().IsInstanceOfType(typeof(Rectangle));
     }
 }
