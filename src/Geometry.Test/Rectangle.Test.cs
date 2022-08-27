@@ -7,7 +7,12 @@ public class RectangleTest
     [Theory]
     public void TestRectangle(double sideA, double sideB)
     {
-        throw new System.NotImplementedException();
+        var rectangle = new Rectangle(sideA, sideB);
+
+        rectangle.Width.Should().Be(sideA);
+        rectangle.Height.Should().Be(sideB);
+        rectangle.Area.Should().Be(sideA * sideB);
+        rectangle.Perimeter.Should().Be((sideA + sideB) * 2);
     }
 
     [InlineData(0, 4)]
@@ -17,6 +22,8 @@ public class RectangleTest
     [Theory]
     public void TestRectangleNonPositiveSideException(double sideA, double sideB)
     {
-        throw new System.NotImplementedException();
+        Action act = () => new Rectangle(sideA, sideB);
+
+        act.Should().Throw<ArgumentException>();
     }
 }
