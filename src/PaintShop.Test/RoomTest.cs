@@ -28,13 +28,18 @@ public class RoomTest
     [MemberData(nameof(ValidRoomData))]
     public void TestRoomInstantiation(Wall wall1, Wall wall2, Wall expectedWall1, Wall expectedWall2)
     {
-        throw new NotImplementedException();
+        var room = new Room(wall1, wall2);
+
+        room.Walls[0].Should().Be(wall1);
+        room.Walls[1].Should().Be(wall2);
     }
 
     [Theory]
     [MemberData(nameof(ValidPaintableAreaData))]
     public void TestTotalPaintableAreaCalculation(Wall wall1, Wall wall2, double expectedPaintableArea)
     {
-        throw new NotImplementedException();
+        var room = new Room(wall1, wall2);
+
+        room.TotalPaintableArea.Should().Be(expectedPaintableArea);
     }
 }
