@@ -11,13 +11,15 @@ public class TestBookType
     [Fact(DisplayName = "Deve ter criado corretamente a struct Book")]    
     public void TestBookExists()
     {
-        throw new notImplementedException();
+        var book = new Book();
+        book.GetType().IsInstanceOfType(typeof(Book));
     }
 
     [Trait("Category", "2 - Crie a struct Book")]
     [Fact(DisplayName = "Deve ter criado corretamente a struct Book")]    
     public void TestBookTypeExists()
     {
-        throw new notImplementedException();
+        var book = new Book() { Type = BookTypes.Children };
+        book.Type.GetType().IsInstanceOfType(typeof(BookTypes));
     }
 }

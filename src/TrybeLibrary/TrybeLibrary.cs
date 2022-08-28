@@ -1,4 +1,4 @@
-﻿namespace LibraryTypes;
+﻿namespace TrybeLibrary;
 
 public struct Book
 {

@@ -11,7 +11,8 @@ public class TestBook
     [Fact(DisplayName = "Deve ter criado corretamente o enum BookTypes")]    
     public void TestBookTypesExists()
     {
-        throw new notImplementedException();
+        var book = new BookTypes();
+        book.GetType().IsInstanceOfType(typeof(Enum));
     }
 
     [Trait("Category", "1 - Crie o enum BookTypes")]
@@ -24,6 +25,7 @@ public class TestBook
     [InlineData(5, "Romance")]
     public void TestBookTypesCount(int type, string name)
     {
-        throw new notImplementedException();
+        var bookType = (BookTypes)type;
+        bookType.ToString().Should().BeEquivalentTo(name);
     }
 }
