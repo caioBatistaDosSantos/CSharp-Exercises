@@ -17,9 +17,9 @@ public class ElectricStove : Appliance, ICooker
         try
         {
             if (!IsOn)
-                throw new ArgumentException("device off");
+                throw new ArgumentException("ElectricStove  off");
             
-            Console.WriteLine($"let's cook {food}");
+            Console.WriteLine($"let's cook {food} - ElectricStove");
         }
         catch (ArgumentException ex)
         {
@@ -34,9 +34,9 @@ public class ElectricStove : Appliance, ICooker
         try
         {
             if (!IsOn)
-                throw new ArgumentException("device off");
+                throw new ArgumentException("ElectricStove  off");
             
-            Console.WriteLine($"let's bake {food}");
+            Console.WriteLine($"let's bake {food} - ElectricStove");
         }
         catch (ArgumentException ex)
         {

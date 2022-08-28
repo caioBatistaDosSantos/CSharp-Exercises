@@ -15,7 +15,12 @@ public class ApplianceTests
     [InlineData("Electrolux", "ST-02", 10, 200, false)]
     public void TestMicrowave(string brand, string model, int boilingTime, int maximumTemperature, bool initialIsOn)
     {
-        throw new System.NotImplementedException();
+        var microwave = new Microwave(brand, model, boilingTime, maximumTemperature);
+
+        microwave.Brand.Should().Be(brand);
+        microwave.Model.Should().Be(model);
+        microwave.BoilingTime.Should().Be(boilingTime);
+        microwave.IsOn.Should().Be(initialIsOn);
     }
 
     [Theory]
@@ -23,13 +28,22 @@ public class ApplianceTests
     [InlineData("Electrolux", "MW-02", 10, 200, false)]
     public void TestElectricStove(string brand, string model, int boilingTime, int maximumTemperature, bool initialIsOn)
     {
-        throw new System.NotImplementedException();
+        var eletricStove = new ElectricStove(brand, model, boilingTime, maximumTemperature);
+
+        eletricStove.Brand.Should().Be(brand);
+        eletricStove.Model.Should().Be(model);
+        eletricStove.BoilingTime.Should().Be(boilingTime);
+        eletricStove.IsOn.Should().Be(initialIsOn);
     }
 
     [Theory]
     [MemberData(nameof(PolymorphismData))]
     public void TestPolymorphism(object microwave, object electricStove)
     {
-        throw new System.NotImplementedException();
+        microwave.Should().BeAssignableTo<ICooker>();
+        microwave.Should().BeAssignableTo<Appliance>();
+        
+        electricStove.Should().BeAssignableTo<ICooker>();
+        electricStove.Should().BeAssignableTo<Appliance>();
     }
 }
