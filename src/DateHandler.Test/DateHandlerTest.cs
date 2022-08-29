@@ -50,7 +50,22 @@ public class DateHandlerTest
     [InlineData("2022-10-10", "2010-10-10")]
     public void TestRemoveFirstEvent(string date1, string date2)
     {
-        throw new NotImplementedException();
+        string[] newDate1 = date1.Split("-");
+        var DateDate1 = new DateTime(Convert.ToInt32(newDate1[0]), Convert.ToInt32(newDate1[1]), Convert.ToInt32(newDate1[2]));
+        string[] newDate2 = date2.Split("-");
+        var DateDate2 = new DateTime(Convert.ToInt32(newDate2[0]), Convert.ToInt32(newDate2[1]), Convert.ToInt32(newDate2[2]));
+
+        Schedule instance = new Schedule();
+
+        instance.nextEvents[0] = DateDate1;
+        instance.nextEvents[0].Date.Should().Be(DateDate1.Date);
+
+        instance.nextEvents[1] = DateDate2;
+        instance.nextEvents[1].Date.Should().Be(DateDate2.Date);
+
+        instance.RemoveFirstEvent();
+
+        instance.nextEvents[0].Date.Should().Be(DateDate2.Date);
     }
 
 }

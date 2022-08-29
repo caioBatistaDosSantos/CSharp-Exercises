@@ -32,7 +32,10 @@ public class Schedule : IScheduleFormat
 
     public void RemoveFirstEvent()
     {
-        throw new NotImplementedException();
+        for (int index = 1; index < nextEvents.Length-1; index++)
+        {
+            nextEvents[index - 1] = nextEvents[index];  
+        }
     }
 
 }
