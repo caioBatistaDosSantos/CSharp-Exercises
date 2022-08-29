@@ -9,13 +9,17 @@ public class TestSelectionProcessValidation
     [InlineData("Maria;João;Fernanda;Felipe;Maurício;Mayara", "Maria", true)]
     public void TestSelectionProcessValidationSuccess(string selectedPeople, string name, bool resultExpected)
     {
-        throw new NotImplementedException();
+        var result = new SelectionProcessValidation().ValidateName(selectedPeople, name);
+
+        result.Should().Be(resultExpected);
     }
 
     [Theory(DisplayName = "Teste de exceção para validação de processo de seleção onde nome não pode ser vazio")]
     [InlineData("Maria;João;Fernanda;Felipe;Maurício;Mayara", null)]
     public void TestSelectionProcessValidationException(string selectedPeople, string name)
     {
-        throw new NotImplementedException();
+        Action act = () => new SelectionProcessValidation().ValidateName(selectedPeople, name);
+
+        act.Should().Throw<ArgumentException>().WithMessage("O campo nome está vazio");
     }
 }

@@ -10,6 +10,11 @@ public class SelectionProcessValidation
     /// <exception cref="ArgumentException">If name is null or an empty string</exception>
     public bool ValidateName(string selectedPeople, string name) 
     {
-        throw new NotImplementedException();
+        if (name == null || name == "")
+            throw new ArgumentException("O campo nome está vazio");
+        
+        string[] namePeoples = selectedPeople.Split(";");
+
+        return namePeoples.Contains(name);
     }
 }
