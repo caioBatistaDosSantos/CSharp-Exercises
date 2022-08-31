@@ -102,6 +102,7 @@ public class GenericList<T>
             Console.WriteLine(ex.Message);
             throw;
         }
+    
     }
     
 }

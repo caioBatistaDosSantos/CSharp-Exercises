@@ -39,9 +39,9 @@ public class TestReq2
         foreach (int number in list)
             instance.Add(number);
 
-        Action act = () => instance.Index(entry);
+        Action act = () => instance.Search(entry);
 
-        act.Should().Throw<InvalidOperationException>();
+        act.Should().Throw<InvalidOperationException>().WithMessage("Elemento não está na lista");
     }
 
 }
