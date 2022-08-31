@@ -15,7 +15,14 @@ public class TestReq2
     [InlineData(new int[]{3, 2, 1, 9, 11}, 11, 4)]
     public void TestSearch(int[] list, int entry, int expected)
     {
-        throw new NotImplementedException();
+        GenericList<int> instance = new GenericList<int>();
+
+        foreach (int number in list)
+            instance.Add(number);
+        
+        var result = instance.Search(entry);
+
+        result.Should().Be(expected);
     }
 
 
@@ -27,7 +34,14 @@ public class TestReq2
     [InlineData(new int[]{3, 2, 1, 9, 11}, 1111)]
     public void TestSearchException(int[] list, int entry)
     {
-        throw new NotImplementedException();
+        GenericList<int> instance = new GenericList<int>();
+
+        foreach (int number in list)
+            instance.Add(number);
+
+        Action act = () => instance.Index(entry);
+
+        act.Should().Throw<InvalidOperationException>();
     }
 
 }

@@ -78,7 +78,30 @@ public class GenericList<T>
 
     public int Search(T element)
     {
-        throw new NotImplementedException();
+        try
+        {
+            Node elementNode = Head;
+            int index = 0;
+
+            while(elementNode.Next != null)
+            {
+                if (elementNode.Value.Equals(element))
+                    return index;
+
+                elementNode = elementNode.Next;
+                index++;
+            }
+
+            if (elementNode.Value.Equals(element))
+                return index;
+            
+            throw new InvalidOperationException("Elemento não está na lista");
+        }
+        catch (InvalidOperationException ex)
+        {
+            Console.WriteLine(ex.Message);
+            throw;
+        }
     }
     
 }

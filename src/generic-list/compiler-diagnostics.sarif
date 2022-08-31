@@ -115,6 +115,90 @@
           "properties": {
             "warningLevel": 1
           }
+        },
+        {
+          "ruleId": "CS8600",
+          "level": "warning",
+          "message": "Conversão de literal nula ou possível valor nulo em tipo não anulável.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///Users/macbook/Trybe/trybe-c%23/block-5/acc-csharp-07-exercises-generic-list/src/generic-list/GenericList.cs",
+                "region": {
+                  "startLine": 83,
+                  "startColumn": 32,
+                  "endLine": 83,
+                  "endColumn": 36
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8602",
+          "level": "warning",
+          "message": "Desreferência de uma referência possivelmente nula.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///Users/macbook/Trybe/trybe-c%23/block-5/acc-csharp-07-exercises-generic-list/src/generic-list/GenericList.cs",
+                "region": {
+                  "startLine": 86,
+                  "startColumn": 19,
+                  "endLine": 86,
+                  "endColumn": 30
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8602",
+          "level": "warning",
+          "message": "Desreferência de uma referência possivelmente nula.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///Users/macbook/Trybe/trybe-c%23/block-5/acc-csharp-07-exercises-generic-list/src/generic-list/GenericList.cs",
+                "region": {
+                  "startLine": 88,
+                  "startColumn": 21,
+                  "endLine": 88,
+                  "endColumn": 38
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8602",
+          "level": "warning",
+          "message": "Desreferência de uma referência possivelmente nula.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///Users/macbook/Trybe/trybe-c%23/block-5/acc-csharp-07-exercises-generic-list/src/generic-list/GenericList.cs",
+                "region": {
+                  "startLine": 95,
+                  "startColumn": 17,
+                  "endLine": 95,
+                  "endColumn": 34
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
         }
       ],
       "rules": {
