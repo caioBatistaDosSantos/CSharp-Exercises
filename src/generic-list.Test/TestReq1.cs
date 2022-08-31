@@ -15,7 +15,14 @@ public class TestReq1
     [InlineData(new int[]{3, 2, 1, 9, 1}, 4, 1)]
     public void TestIndex(int[] list, int entry, int expected)
     {
-        throw new NotImplementedException();     
+        GenericList<int> instance = new GenericList<int>();
+
+        foreach (int number in list)
+            instance.Add(number);
+        
+        var result = instance.Index(entry);
+
+        result.Should().Be(expected);
     }
 
     [Theory(DisplayName = "Deve retornar uma exeção quando passado um index maior que o número de elementos da lista")]
@@ -26,6 +33,13 @@ public class TestReq1
     [InlineData(new int[]{3, 2, 1, 9, 1}, 11)]
     public void TestIndexException(int[] list, int entry)
     {
-        throw new NotImplementedException();
+        GenericList<int> instance = new GenericList<int>();
+
+        foreach (int number in list)
+            instance.Add(number);
+
+        Action act = () => instance.Index(entry);
+
+        act.Should().Throw<InvalidOperationException>();
     }
 }

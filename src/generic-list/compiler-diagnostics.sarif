@@ -5,9 +5,9 @@
     {
       "tool": {
         "name": "Compilador do Microsoft (R) Visual C#",
-        "version": "4.1.0.0",
-        "fileVersion": "4.1.0-5.22116.13 (dbffaa4a)",
-        "semanticVersion": "4.1.0",
+        "version": "4.2.0.0",
+        "fileVersion": "4.2.0-4.22220.5 (432d17a8)",
+        "semanticVersion": "4.2.0",
         "language": "pt-BR"
       },
       "results": [
@@ -18,7 +18,7 @@
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///Users/rahelund/C%23/generic%20list/acc-csharp-0x-exercise-generic-list/src/generic-list/GenericList.cs",
+                "uri": "file:///Users/macbook/Trybe/trybe-c%23/block-5/acc-csharp-07-exercises-generic-list/src/generic-list/GenericList.cs",
                 "region": {
                   "startLine": 43,
                   "startColumn": 15,
@@ -33,18 +33,18 @@
           }
         },
         {
-          "ruleId": "CS8602",
+          "ruleId": "CS8600",
           "level": "warning",
-          "message": "Desreferência de uma referência possivelmente nula.",
+          "message": "Conversão de literal nula ou possível valor nulo em tipo não anulável.",
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///Users/rahelund/C%23/generic%20list/acc-csharp-0x-exercise-generic-list/src/generic-list/GenericList.cs",
+                "uri": "file:///Users/macbook/Trybe/trybe-c%23/block-5/acc-csharp-07-exercises-generic-list/src/generic-list/GenericList.cs",
                 "region": {
-                  "startLine": 56,
-                  "startColumn": 16,
-                  "endLine": 56,
-                  "endColumn": 25
+                  "startLine": 55,
+                  "startColumn": 30,
+                  "endLine": 55,
+                  "endColumn": 34
                 }
               }
             }
@@ -60,12 +60,33 @@
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///Users/rahelund/C%23/generic%20list/acc-csharp-0x-exercise-generic-list/src/generic-list/GenericList.cs",
+                "uri": "file:///Users/macbook/Trybe/trybe-c%23/block-5/acc-csharp-07-exercises-generic-list/src/generic-list/GenericList.cs",
                 "region": {
                   "startLine": 66,
-                  "startColumn": 16,
+                  "startColumn": 21,
                   "endLine": 66,
-                  "endColumn": 25
+                  "endColumn": 30
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8600",
+          "level": "warning",
+          "message": "Conversão de literal nula ou possível valor nulo em tipo não anulável.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///Users/macbook/Trybe/trybe-c%23/block-5/acc-csharp-07-exercises-generic-list/src/generic-list/GenericList.cs",
+                "region": {
+                  "startLine": 68,
+                  "startColumn": 34,
+                  "endLine": 68,
+                  "endColumn": 48
                 }
               }
             }
@@ -81,33 +102,12 @@
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///Users/rahelund/C%23/generic%20list/acc-csharp-0x-exercise-generic-list/src/generic-list/GenericList.cs",
+                "uri": "file:///Users/macbook/Trybe/trybe-c%23/block-5/acc-csharp-07-exercises-generic-list/src/generic-list/GenericList.cs",
                 "region": {
-                  "startLine": 75,
-                  "startColumn": 16,
-                  "endLine": 75,
-                  "endColumn": 25
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "CS8602",
-          "level": "warning",
-          "message": "Desreferência de uma referência possivelmente nula.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///Users/rahelund/C%23/generic%20list/acc-csharp-0x-exercise-generic-list/src/generic-list/GenericList.cs",
-                "region": {
-                  "startLine": 75,
-                  "startColumn": 16,
-                  "endLine": 75,
-                  "endColumn": 31
+                  "startLine": 71,
+                  "startColumn": 20,
+                  "endLine": 71,
+                  "endColumn": 32
                 }
               }
             }
@@ -118,6 +118,20 @@
         }
       ],
       "rules": {
+        "CS8600": {
+          "id": "CS8600",
+          "shortDescription": "Conversão de literal nula ou possível valor nulo em tipo não anulável.",
+          "defaultLevel": "warning",
+          "helpUri": "https://msdn.microsoft.com/query/roslyn.query?appId=roslyn&k=k(CS8600)",
+          "properties": {
+            "category": "Compiler",
+            "isEnabledByDefault": true,
+            "tags": [
+              "Compiler",
+              "Telemetry"
+            ]
+          }
+        },
         "CS8602": {
           "id": "CS8602",
           "shortDescription": "Desreferência de uma referência possivelmente nula.",

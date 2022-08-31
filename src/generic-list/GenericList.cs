@@ -50,7 +50,30 @@ public class GenericList<T>
 
     public T Index(int index)
     {
-        throw new NotImplementedException();
+        try
+        {
+            Node indexNode = Head;
+            Node? selectedNode = null;
+            bool exception = true;
+
+            for (int i = 0; i <= index; i++)
+            {
+                if (i == index)
+                {
+                    selectedNode = indexNode;
+                    exception = false;
+                }
+                if (indexNode.Next == null && exception)
+                    throw new InvalidOperationException("Não há elementos suficientes na lista");
+                else indexNode = indexNode.Next;
+            }
+
+            return selectedNode.Value;
+        }
+        catch (InvalidOperationException ex)
+        {
+            throw ex;
+        }
     }
 
     public int Search(T element)
