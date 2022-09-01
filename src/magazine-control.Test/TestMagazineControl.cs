@@ -11,7 +11,12 @@ public class TestMagazineControl
     [MemberData(nameof(TestSaveMagazineData))]
     public void TestSaveMagazine(List<string> magazines, string name, List<string> expectedMagazines, int expectedReturn)
     {
-        throw new NotImplementedException();
+        var instance = new MagazineControl(magazines);
+
+        var result = instance.SaveMagazine(name);
+
+        instance.Magazines.Should().BeEquivalentTo(expectedMagazines);
+        result.Should().Be(expectedReturn);
     }
     public static TheoryData<List<string>, string, List<string>, int> TestSaveMagazineData = new()
     {
@@ -40,7 +45,9 @@ public class TestMagazineControl
     [MemberData(nameof(TestFindMagazinePositionData))]
     public void TestFindMagazinePosition(List<string> magazines, string name, int expectedValue)
     {
-        throw new NotImplementedException();
+        var instance = new MagazineControl(magazines);
+        var result = instance.FindMagazinePosition(name);
+        result.Should().Be(expectedValue);
     }
     public static TheoryData<List<string>, string, int> TestFindMagazinePositionData = new TheoryData<List<string>, string, int>
     {
