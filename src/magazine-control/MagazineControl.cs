@@ -15,7 +15,9 @@ public class MagazineControl
     /// <returns>Added item index.</returns>
     public int SaveMagazine(string name)
     {
-        throw new NotImplementedException();
+        Magazines.Add(name);
+
+        return Magazines.Count - 1;
     }
 
     /// <summary>
@@ -25,6 +27,6 @@ public class MagazineControl
     /// <returns>Item index.</returns>
     public int FindMagazinePosition(string name)
     {
-        throw new NotImplementedException();
+        return Magazines.IndexOf(name);
     }
 }

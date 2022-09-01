@@ -4,11 +4,11 @@
   "runs": [
     {
       "tool": {
-        "name": "Microsoft (R) Visual C# Compiler",
+        "name": "Compilador do Microsoft (R) Visual C#",
         "version": "4.2.0.0",
-        "fileVersion": "4.2.0-4.22220.2 (1e40aa11)",
+        "fileVersion": "4.2.0-4.22220.5 (432d17a8)",
         "semanticVersion": "4.2.0",
-        "language": "en-US"
+        "language": "pt-BR"
       },
       "results": [
       ]
