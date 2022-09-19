@@ -17,7 +17,13 @@ public class StockOptions
   /// <returns>A stock</returns>
   public IStock? getStock(string symbol)
   {
-    throw new NotImplementedException();
+    var stoksSearch = from stockOption in stockOptions.stocks()
+      where stockOption.symbol == symbol
+      select stockOption;
+
+    if (stoksSearch.Any()) return stoksSearch.ElementAt(0);
+    
+    return null;
   }
 
   /// <summary>
