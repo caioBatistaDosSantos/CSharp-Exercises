@@ -8,7 +8,11 @@ public class SchoolDatabase : ISchoolDatabase
 
     public Student[] GetStudentsByName(string name)
     {
-        throw new NotImplementedException();
+        var result = from student in Students
+            where student.Name == name
+            select student;
+        
+        return result.ToArray();
     }
 
     public Student[] GetStudentsWithAverageGradeInProjectAbove(int gradeInput)
