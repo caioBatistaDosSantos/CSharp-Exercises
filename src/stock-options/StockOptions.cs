@@ -36,6 +36,12 @@ public class StockOptions
 
   public IStock? recomendStock(string type, double minPrice, double maxPrice)
   {
-    throw new NotImplementedException();
+    var stoksSearch = from stockOption in stockOptions.stocks()
+      where stockOption.type == type &&  stockOption.lastPrice >= minPrice && stockOption.lastPrice <= maxPrice
+      select stockOption;
+
+    if (stoksSearch.Any()) return stoksSearch.ElementAt(0);
+    
+    return null;
   }
 }

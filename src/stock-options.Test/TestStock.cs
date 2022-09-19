@@ -24,6 +24,16 @@ public class TestStock
   [InlineData("Common", "Common", 1030.00, 1000.00, 1500.00)]
   public void HasStockRecomend(string mockType, string findType, double price, double minValue, double maxValue)
   {
-    throw new NotImplementedException();
+    var mockStok = new Mock<IStockService>();
+    var stok = new Stock("name", "symbol", Convert.ToString(price), "change", mockType);
+    mockStok.Setup(c => c.stocks()).Returns(new List<IStock> { stok });
+
+    var stokeOptions = new StockOptions(mockStok.Object);
+    var result = stokeOptions.recomendStock(findType, minValue, maxValue);
+
+    result.Should().NotBeNull();
+    result.Should().BeEquivalentTo(stok);
+    result.type.Should().Be(findType);
+    result.lastPrice.Should().Be(price);
   }
 }
