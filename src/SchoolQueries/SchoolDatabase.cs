@@ -12,12 +12,25 @@ public class SchoolDatabase : ISchoolDatabase
             where student.Name == name
             select student;
         
+        // var result = Students.Where(e => e.Name == name);
+
         return result.ToArray();
     }
 
     public Student[] GetStudentsWithAverageGradeInProjectAbove(int gradeInput)
     {
-        throw new NotImplementedException();
+        var result =
+            // Pega os projetos com as medias acima da nota sinalizada
+            from projectGrade in ProjectGrades
+            where projectGrade.Grades.Average() > gradeInput
+
+            // pega os estudantes que fizeram tais projetos
+            from student in Students
+            where student.Id == projectGrade.StudentId
+            select student;
+        
+
+        return result.ToArray();
     }
 
     public Project[] GetProjectsWithMinimumGradeInProjectBelow(int gradeInput)

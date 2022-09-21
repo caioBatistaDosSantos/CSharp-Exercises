@@ -21,7 +21,8 @@ public class TestSchoolDatabase
     [MemberData(nameof(DataTestGetStudentsWithAverageGradeInProjectAbove))]
     public void TestGetStudentsWithAverageGradeInProjectAbove(SchoolDatabase databaseEntry, int gradeEntry, Student[] studentsExpected)
     {
-        throw new NotImplementedException();
+        var result = databaseEntry.GetStudentsWithAverageGradeInProjectAbove(gradeEntry);
+        result.Should().BeEquivalentTo(studentsExpected);
     }
 
     [Theory(DisplayName = "Test GetProjectsWithMinimumGradeInProjectBelow")]
@@ -67,7 +68,42 @@ public class TestSchoolDatabase
         };
 
     public static TheoryData<SchoolDatabase, int, Student[]> DataTestGetStudentsWithAverageGradeInProjectAbove => 
-        new(){};
+        new(){
+            // Primeiro caso de teste
+            {
+                GetSchoolDatabaseInstanceToTest(),
+                80,
+                new Student[]{
+                    new Student() {
+                        Id = 1,
+                        Name = "Student 1",
+                        Age = 20,
+                    },
+                }
+            },
+            // Segundo caso de teste
+            {
+                GetSchoolDatabaseInstanceToTest(),
+                50,
+                new Student[]{
+                    new Student() {
+                    Id = 1,
+                    Name = "Student 1",
+                    Age = 20,
+                },
+                new Student() {
+                    Id = 2,
+                    Name = "Student 2",
+                    Age = 21,
+                },
+                new Student() {
+                    Id = 3,
+                    Name = "Student 3",
+                    Age = 22,
+                }
+                }
+            }
+        };
 
     public static TheoryData<SchoolDatabase, int, Project[]> DataTestGetProjectsWithMinimumGradeInProjectBelow => 
         new(){};
