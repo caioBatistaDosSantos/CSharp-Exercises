@@ -29,14 +29,16 @@ public class TestSchoolDatabase
     [MemberData(nameof(DataTestGetProjectsWithMinimumGradeInProjectBelow))]
     public void TestGetProjectsWithMinimumGradeInProjectBelow(SchoolDatabase databaseEntry, int gradeEntry, Project[] projectsExprected)
     {
-        throw new NotImplementedException();
+        var result = databaseEntry.GetProjectsWithMinimumGradeInProjectBelow(gradeEntry);
+        result.Should().BeEquivalentTo(projectsExprected);
     }
 
     [Theory(DisplayName = "Test GetStudentsDoneProject")]
     [MemberData(nameof(DataTestGetStudentsDoneProject))]
     public void TestGetStudentsDoneProject(SchoolDatabase databaseEntry, string projectNameEntry, Student[] studentsExpected)
     {
-        throw new NotImplementedException();
+        var result = databaseEntry.GetStudentsDoneProject(projectNameEntry);
+        result.Should().BeEquivalentTo(studentsExpected);
     }
 
     public static TheoryData<SchoolDatabase, string, Student[]> DataTestGetStudentsByName => 
@@ -106,10 +108,80 @@ public class TestSchoolDatabase
         };
 
     public static TheoryData<SchoolDatabase, int, Project[]> DataTestGetProjectsWithMinimumGradeInProjectBelow => 
-        new(){};
+        new(){
+            // Primeiro caso de teste
+            {
+                GetSchoolDatabaseInstanceToTest(),
+                80,
+                new Project[]{
+                    new Project() {
+                        Id = 2,
+                        Name = "Project 2",
+                        Requirements = new string[] { "Requirement 1", "Requirement 2" },
+                        BonusRequirements = new string[] { "Bonus 1", "Bonus 2" }
+                    },
+                    new Project() {
+                        Id = 3,
+                        Name = "Project 3",
+                        Requirements = new string[] { "Requirement 1", "Requirement 2" },
+                        BonusRequirements = new string[] { "Bonus 1", "Bonus 2" }
+                    }
+                }
+            },
+            // Segundo caso de teste
+            {
+                GetSchoolDatabaseInstanceToTest(),
+                70,
+                new Project[]{
+                    new Project() {
+                        Id = 2,
+                        Name = "Project 2",
+                        Requirements = new string[] { "Requirement 1", "Requirement 2" },
+                        BonusRequirements = new string[] { "Bonus 1", "Bonus 2" }
+                    },
+                }
+            }
+        };
 
     public static TheoryData<SchoolDatabase, string, Student[]> DataTestGetStudentsDoneProject => 
-        new(){};
+        new(){
+            // Primeiro caso de teste
+            {
+                GetSchoolDatabaseInstanceToTest(),
+                "Project 1",
+                new Student[]{
+                        new Student() {
+                        Id = 1,
+                        Name = "Student 1",
+                        Age = 20,
+                    },
+                }
+            },
+            // Segundo caso de teste
+            {
+                GetSchoolDatabaseInstanceToTest(),
+                "Project 3",
+                new Student[]{
+                    new Student() {
+                        Id = 2,
+                        Name = "Student 2",
+                        Age = 21,
+                    },
+                }
+            },
+            // Terceiro caso de teste
+            {
+                GetSchoolDatabaseInstanceToTest(),
+                "Project 2",
+                new Student[]{
+                    new Student() {
+                        Id = 3,
+                        Name = "Student 3",
+                        Age = 22,
+                    }
+                }
+            },
+        };
 
     public static SchoolDatabase GetSchoolDatabaseInstanceToTest()
     {
