@@ -27,9 +27,11 @@ Os <b>testes</b> foram realizados com as ferramentas `xUnit` e `FluentAssertions
   - `cd src`
 5. Instale as dependencia com o comando:
   - `dotnet restore`
-6. Inicie a aplicação com o comando:
+6. Inicie a aplicação com os comandos:
+  - `cd <nome do projeto>`
   - `dotnet run`
 7. Rode os testes com o comando:
+  - `cd <nome do projeto.Test>`
   - `dotnet test`
 
 ---
