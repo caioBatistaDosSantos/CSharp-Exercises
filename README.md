@@ -29,10 +29,10 @@ Os <b>testes</b> foram realizados com as ferramentas `xUnit` e `FluentAssertions
   - `dotnet restore`
 6. Inicie a aplicação com os comandos:
   - `cd <nome do projeto>`
-  - `dotnet run`
+    - `dotnet run`
 7. Rode os testes com o comando:
   - `cd <nome do projeto.Test>`
-  - `dotnet test`
+    - `dotnet test`
 
 ---
 
