@@ -31,7 +31,7 @@ Os <b>testes</b> foram realizados com as ferramentas `xUnit` e `FluentAssertions
   - `cd <nome do projeto>`
     - `dotnet run`
 7. Rode os testes com os comandos:
-  - `cd <nome do projeto.Test>`
+  - `cd <nome do projeto>.Test`
     - `dotnet test`
 
 ---
